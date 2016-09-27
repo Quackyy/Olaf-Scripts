@@ -68,3 +68,10 @@ OnTick(function()
        CastSpell(GetItemSlot(myHero, 3748))
     end 
 end)
+  
+OlafMenu:SubMenu("SkinChanger", "SkinChanger")
+
+local skinMeta = {["Olaf"] = {"Classic", "Forsaken", "Glacial", "Br", "Pentakill", "Marauder"},
+OlafMenu.SkinChanger:DropDown('skin', myHero.charName.. " Skins", 1, skinMeta[myHero.charName], HeroSkinChanger, true)
+OlafMenu.SkinChanger.skin.callback = function(model) HeroSkinChanger(myHero, model - 1) print(skinMeta[myHero.charName][model] .." ".. myHero.charName .. " Loaded!") end
+ 
