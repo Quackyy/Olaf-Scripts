@@ -12,6 +12,11 @@ local OlafMenu = Menu("OlafNation", "OlafNation")
   OlafMenu.Combo:Boolean("useE", "Use E", true)
   OlafMenu.Combo:Boolean("useR", "Use R", true)
   OlafMenu.Combo:Slider("ultX","Ult on X enemies around", 3, 1, 5, 1)
+  OlafMenu.Combo:Boolean("useTiamat", "Use Tiamat", true)
+  OlafMenu.Combo:Boolean("useHydra", "Use Ravenous Hydra", true)
+  OlafMenu.Combo:Boolean("useTitanic", "Use Titanic Hydra", true)
+
+  
 -- Harass Menu
   OlafMenu:Menu("Harass", "Harass")
 --Q
@@ -36,7 +41,7 @@ OnTick(function()
     if IOW:Mode() == "Combo" then
        
         local target = GetCurrentTarget() 
-        -- 
+         
         if ValidTarget(target,OlafQ.range) and CanUseSpell(myHero,_Q) == READY and OlafMenu.Combo.useQ:Value() then
                         
             local qPred = GetPrediction(target,OlafQ)
@@ -58,13 +63,13 @@ OnTick(function()
           CastSpell(_R)
         end
 
-         if GetItemSlot(myHero, 3077) > 0 and IsReady(GetItemSlot(myHero, 3077)) then
+         if GetItemSlot(myHero, 3077) > 0 and IsReady(GetItemSlot(myHero, 3077)) and OlafMenu.Combo.useTiamat:Value() then
        CastSpell(GetItemSlot(myHero, 3077))
       end
-    if GetItemSlot(myHero, 3074) > 0 and IsReady(GetItemSlot(myHero, 3074)) then
+    if GetItemSlot(myHero, 3074) > 0 and IsReady(GetItemSlot(myHero, 3074)) and OlafMenu.Combo.useHydra:Value() then
        CastSpell(GetItemSlot(myHero, 3074))
       end
-   if GetItemSlot(myHero, 3748) > 0 and IsReady(GetItemSlot(myHero, 3748)) then
+   if GetItemSlot(myHero, 3748) > 0 and IsReady(GetItemSlot(myHero, 3748)) and OlafMenu.Combo.useTitanic:Value() then
        CastSpell(GetItemSlot(myHero, 3748))
     end 
 end)
@@ -74,4 +79,3 @@ OlafMenu:SubMenu("SkinChanger", "SkinChanger")
 local skinMeta = {["Olaf"] = {"Classic", "Forsaken", "Glacial", "Br", "Pentakill", "Marauder"},
 OlafMenu.SkinChanger:DropDown('skin', myHero.charName.. " Skins", 1, skinMeta[myHero.charName], HeroSkinChanger, true)
 OlafMenu.SkinChanger.skin.callback = function(model) HeroSkinChanger(myHero, model - 1) print(skinMeta[myHero.charName][model] .." ".. myHero.charName .. " Loaded!") end
- 
