@@ -72,7 +72,7 @@ OnTick(function()
        CastSpell(GetItemSlot(myHero, 3074))
       end
     if GetItemSlot(myHero, 3748) > 0 and IsReady(GetItemSlot(myHero, 3748)) and OlafMenu.Combo.useTitanic:Value() then
-        CastSpell(GetItemSlot(myHero, 3748))
+       CastSpell(GetItemSlot(myHero, 3748))
       end 
     end
 end)
