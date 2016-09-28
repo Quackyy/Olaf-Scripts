@@ -20,7 +20,7 @@ local OlafMenu = Menu("OlafNation", "OlafNation")
 
   
 -- Harass Menu
-  OlafMenu:Menu("Harass", "Harass")
+  --SoonTM
 --Q
   OlafMenu.Combo:Boolean("useQ", "Use Q", true)   
   OlafMenu.Harass:Slider("manaQ","Mana-Manager | Q", 60, 0, 100, 1)
@@ -31,12 +31,7 @@ local OlafMenu = Menu("OlafNation", "OlafNation")
   OlafMenu.Combo:Boolean("useE", "Use E", true)
   OlafMenu.Harass:Slider("manaE","Hp-Manager | E", 20, 0, 100, 1) 
 -- KillSteal Menu
-  OlafMenu:Menu("KillSteal", "KillSteal")
-  OlafMenu.KillSteal:Boolean("useQ", "Use Q", true)
-  OlafMenu.KillSteal:Boolean("useE", "Use E", true)
-
-
-
+ --SoonTM
 
 OnTick(function()
 
