@@ -2,6 +2,8 @@ if GetObjectName(myHero) ~= "Olaf" then return end
 
 require('OpenPredict')
 
+print("Enjoy SkarnerNation // By:Vikk")
+
 local OlafQ = {delay = 0.25, speed = 1600, width = 90, range = 1000} 
 
 local OlafMenu = Menu("OlafNation", "OlafNation")
