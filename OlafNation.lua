@@ -22,7 +22,7 @@ local OlafMenu = Menu("OlafNation", "OlafNation")
 -- Harass Menu
   OlafMenu:Menu("Harass", "Harass")
 --Q
-  OlafMenu.Combo:Boolean("useR", "Use Q", true)   
+  OlafMenu.Combo:Boolean("useQ", "Use Q", true)   
   OlafMenu.Harass:Slider("manaQ","Mana-Manager | Q", 60, 0, 100, 1)
 --W
   OlafMenu.Combo:Boolean("useW", "Use W", true) 
