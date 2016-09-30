@@ -18,6 +18,7 @@ local OlafMenu = Menu("OlafNation", "OlafNation")
   OlafMenu.Combo:Boolean("useHydra", "Use Ravenous Hydra", true)
   OlafMenu.Combo:Boolean("useTitanic", "Use Titanic Hydra", true)
   OlafMenu.Combo:Boolean("useBOTRK", "Use BladeOfTheRuinedKing", true)
+  OlafMenu.Combo:Boolean("useCut", "Use Bilgewater Cutlass", true)  
   OlafMenu.Combo:Boolean("useYoum", "Use Youmuu's Ghostblade", true)
 
   
@@ -71,12 +72,15 @@ OnTick(function()
     if GetItemSlot(myHero, 3748) > 0 and IsReady(GetItemSlot(myHero, 3748)) and OlafMenu.Combo.useTitanic:Value() then
        CastSpell(GetItemSlot(myHero, 3748))
       end 
-    if GetItemSlot(myHero, 3153) > 0 and IsReady(GetItemSlot(myHero, 3153)) and JaxMenu.Combo.useBOTRK:Value() then
+    if GetItemSlot(myHero, 3153) > 0 and IsReady(GetItemSlot(myHero, 3153)) and OlafMenu.Combo.useBOTRK:Value() then
        CastTargetSpell(target, GetItemSlot(myHero, 3153))
       end
-    if GetItemSlot(myHero, 3142) > 0 and IsReady(GetItemSlot(myHero, 3142)) and JaxMenu.Combo.useYoum:Value() then
+    if GetItemSlot(myHero, 3142) > 0 and IsReady(GetItemSlot(myHero, 3142)) and OlafMenu.Combo.useYoum:Value() then
        CastSpell(GetItemSlot(myHero, 3142))
       end    
+    if GetItemSlot(myHero, 3144) > 0 and IsReady(GetItemSlot(myHero, 3144)) and OlafMenu.Combo.useCut:Value() then
+       CastTargetSpell(target, GetItemSlot(myHero, 3144)) 
+      end
     end
 end)
   
